@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb  5 02:31:47 2023
+Created on Fri Jan 27 06:36:37 2023
 
 @author: 86177
 """
@@ -20,31 +20,31 @@ def populate():
     python_pages = [
         {'title': 'Official Python Tutorial',
          'url': 'http://docs.python.org/3/tutorial/',
-         },
+         'views': 114},
         {'title': 'How to Think like a Computer Scientist',
          'url':'http://www.greenteapress.com/thinkpython',
-         },
+         'views': 11},
         {'title':'Learn Python in 10 Minutes',
          'url': 'http://www.korokithakis.net/tutorials/python/',
-         }]
+         'views': 150}]
     
     django_pages = [{'title': 'Official Django Tutorial',
          'url': 'http://docs.djangoproject.com/en/2.1/intro/tutorial01/',
-         },
+         'views': 1},
         {'title': 'Django Rocks',
          'url':'http://www.djangorocks.com/',
-         },
+         'views': 1145},
         {'title':'How to Tango with Django',
          'url': 'http://www.tangowithdjango.com/',
-         }]
+         'views': 11451}]
     
     other_pages = [
         {'title': 'Bottle',
          'url':'http://bottlepy.org/docs/dev/',
-         },
+         'views': 12},
         {'title':'Flask',
          'url': 'http://flask.pocoo.org',
-         }]
+         'views': 198}]
     
     python_category = {'name': 'Python',
                        'views': 128,
@@ -65,7 +65,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat,cat_data['categorys']['views'], cat_data['categorys']['likes'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'])
+            add_page(c, p['title'], p['url'], p['views'])
             
     for c in Category.objects.all():
         print(f"{c.name}'s views: {c.views}")
@@ -92,3 +92,4 @@ def add_cat(name, views, likes):
 if __name__ == '__main__':
     print('Starting Rango population script...')
     populate()
+    
