@@ -54,7 +54,7 @@ def add_category(request):
             
             form.save(commit = True)
              
-            return redirect('/rango/') #'/rango/'
+            return redirect(reverse('rango:index')) #'/rango/'
         else:
             
             print(form.errors)
@@ -69,7 +69,7 @@ def add_page(request, category_name_slug):
         category = None
     
     if category is None:
-        return redirect('/rango/') #'/rango/'
+        return redirect(reverse('rango:index')) #'/rango/'
     
     form = PageForm()
     if request.method == 'POST':
